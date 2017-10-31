@@ -368,8 +368,8 @@ map <leader>pp :setlocal paste!<cr>
 
 
 set cursorline
-hi CursorLine term=bold ctermbg=white cterm=bold "ctermfg=black
-hi Normal ctermfg=darkgrey ctermbg=black
+hi CursorLine term=bold ctermbg=darkgrey cterm=bold "ctermfg=black
+hi Normal ctermfg=grey ctermbg=black
 
 set nu
 
