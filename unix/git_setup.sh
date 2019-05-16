@@ -2,7 +2,13 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 uname="$(uname -s)"
 case "${uname}" in
-    Linux* | Darwin* ) echo git config --global credential.helper cache;;
-    CYGWIN* | MINGW* ) echo git config --global credential.helper wincred;;
+    Linux* | Darwin* )
+        echo git config --global credential.helper cache
+        git config --global credential.helper cache
+        ;;
+    CYGWIN* | MINGW* )
+        echo git config --global credential.helper wincred
+        git config --global credential.helper wincred
+        ;;
     *) echo "Cannot detect OS... git credential setup ignored.";;
 esac
