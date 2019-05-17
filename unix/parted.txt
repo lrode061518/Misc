@@ -1,0 +1,42 @@
+[parted]
+# help list
+help
+
+# chose disk
+select /dev/sda
+select /dev/sdb
+
+# change label
+mklabel [msdos] // GPT if disk size larger than 2TB
+
+# display information
+print [all]
+
+# create paritition
+mkpart [ extended, 0s, 100% ] // need to create extended then logical
+
+// read this to fix partition aligned warning:
+// https://rainbow.chard.org/2013/01/30/how-to-align-partitions-for-best-performance-using-parted/
+
+# set flags 
+set "Partition Number" "flag" on/off
+
+
+// reboot if needed
+
+[setup logical volume manager]
+
+pvdisplay // show phisical volumes
+vgdisplay // show volume groups
+lvdisplay // show logical volumes
+
+pvcreate /dev/sdb5   // create phisical volume
+
+vgextend /dev/ubuntu-vg/root /dev/sdb5 // add phisical volume to group
+lvextend -L +10G /dev/ubuntu-vg/root   // add 10G to logical volume
+
+resize2fs /dev/ubuntu-vg/root   // resize the file system to new allocated space
+
+
+// reference: https://www.joomlaworks.net/blog/item/168-resizing-the-disk-space-on-ubuntu-server-vms
+
