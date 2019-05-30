@@ -1,0 +1,12 @@
+# !/usr/bin/sh
+
+# create a pair or RSA key
+ssh-keygen
+
+# ssh-copy-id user@host
+
+# authorize user by pkey instead of password
+# copy public key to target server ~/.ssh/authorized_keys
+
+# ssh user@host  // without password
+# ssh user@host "command" // exec command without password

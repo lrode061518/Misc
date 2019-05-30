@@ -1,0 +1,20 @@
+# to access virsh console, or take this as prefix to command below options
+$ virsh --connect=qemu:///system
+
+$ list --state--running --with-snapshot --name
+vm-prod-template-dynamic-1-5904
+vm-prod-template-dynamic-2-5905
+vm-prod-template-dynamic-3-5906
+
+$ snapshot-current --domain vm-prod-template-dynamic-1-5904 --name
+1538994415
+
+$ snapshot-revert vm-prod-template-dynamic-1-5904 --snapshotname 1538994415 --force --running
+
+$ change-media --domain {} --path {} --source {} --insert
+$ change-media --domain {} --path {} --eject
+
+$ dumpxml --domain vm-prod-template-dynamic-1-5904 
+
+$ help
+$ quit
