@@ -3,8 +3,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 uname="$(uname -s)"
 case "${uname}" in
     Linux* | Darwin* )
-        echo git config --global credential.helper cache
-        git config --global credential.helper cache
+        echo 'it config --global credential.helper "cache --timeout=28800"'
+        git config --global credential.helper "cache --timeout=28800"
         ;;
     CYGWIN* | MINGW* )
         echo git config --global credential.helper wincred
