@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset%n  %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n'"
 
 uname="$(uname -s)"

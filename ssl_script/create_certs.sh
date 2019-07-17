@@ -1,4 +1,4 @@
-# !/usr/bin 
+#!/usr/bin/env sh
 
 OUTPUT_KEY="/etc/ssl/private/selfsigned.key"
 OUTPUT_CRT="/etc/ssl/certs/selfsigned.crt"
