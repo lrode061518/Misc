@@ -18,3 +18,27 @@ $ dumpxml --domain vm-prod-template-dynamic-1-5904
 
 $ help
 $ quit
+
+
+
+
+public enum VirshCommandType {
+    RETRIEVE_VMS_CMD("virsh --connect={} list --state-running --with-snapshot --name"), // get only running domains with snapshot
+    CREATE_SNAPSHOT_CMD("virsh --connect={} snapshot-create --domain {}"),
+    GET_SNAPSHOT_ID_CMD("virsh --connect={} snapshot-list --domain {} --name"),
+    //    GET_CURRENT_SNAPSHOT_ID_CMD("virsh --connect={} snapshot-current --domain {} --name"),
+    //    REVERT_SNAPSHOT_CMD("virsh snapshot-revert {} --current"),
+    REVERT_SNAPSHOT_CMD("virsh --connect={} snapshot-revert {} --snapshotname {} --force --running"),
+    ATTACH_DISK_CMD("virsh --connect={} attach-disk --domain {} --source {} --type {} --mode readonly"),
+    // last argument is either --eject or --insert
+    INSERT_MEDIA_COMMAND("virsh --connect={} change-media --domain {} --path {} --source {} --insert"),
+    EJECT_MEDIA_COMMAND("virsh --connect={} change-media --domain {} --path {} --eject"),
+    GET_DOMAIN_INFO_CMD("virsh --connect={} dumpxml --domain {}"),
+    CREATE_VOLUME_CMD("virsh --connect={} vol-create-as --pool {} --name {} --capacity {}"),
+    UPLOAD_VOLUME_CMD("virsh --connect={} vol-upload --pool {} --vol {} --file {} --offset {} --length {}"),
+    GET_VOLUME_INFO_CMD("virsh --connect={} vol-info --pool {} --vol {}"),
+    GET_VOLUME_PATH_CMD("virsh --connect={} vol-path --pool {} --vol {}"),
+    DOWNLOAD_VOLUME_CMD("virsh --connect={} vol-download --pool {} --vol {} --file {}"),
+    DELETE_VOLUME_CMD("virsh --connect={} vol-delete --pool {} --vol {}"),
+    POOL_INFO_CMD("virsh --connect={} pool-info --pool {}");
+}
