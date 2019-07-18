@@ -1,0 +1,28 @@
+
+#H1 header
+##H2 header
+###H3 header
+####H4 header
+#####H5 header
+######H6 header
+
+
+~~Strikethrough~~ <s>Strikethrough (when enable html tag decode.)</s>
+*Italic*      _Italic_
+**Emphasis**  __Emphasis__
+***Emphasis Italic*** ___Emphasis Italic___
+
+
+```javascript
+```
+
+```bash
+```
+
+```html
+```
+
+
+
+reference:
+https://pandao.github.io/editor.md/en.html
