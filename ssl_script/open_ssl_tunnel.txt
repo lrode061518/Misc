@@ -1,0 +1,4 @@
+# ssh {user}@{host} -L {local_port}:{remote_ip:remote_port} -N
+# -L binds local port to the remote host port
+# -N forwarding ports
+
