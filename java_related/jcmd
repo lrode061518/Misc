@@ -1,0 +1,6 @@
+// get jvm runtime parameters
+
+jcmd $pid VM.system_properties
+jcmd $pid VM.flags
+jcmd $pid VM.command_line
+jcmd $pid GC.run

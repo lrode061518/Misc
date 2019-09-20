@@ -1,0 +1,3 @@
+// check keystore type
+
+keytool -list -v -keystore $PATH_TO_KEYSTORE
