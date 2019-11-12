@@ -308,6 +308,7 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 autocmd BufWrite *.sql :call DeleteTrailingWS()
 autocmd BufWrite *.yml :call DeleteTrailingWS()
+autocmd BufWrite *.yaml :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying
@@ -431,6 +432,11 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" High light unwanted spaces in end of line
+highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
+autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
+autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
 
 " Make VIM remember position in file after reopen
 " if has("autocmd")
